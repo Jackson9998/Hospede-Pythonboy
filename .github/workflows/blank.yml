@@ -2,7 +2,7 @@ name: Redeploy after 1 hour
 
 on:
   schedule:
-    - cron: '0 */1 * * *'  # Executar a cada 5 horas
+    - cron: '2 */6 * * *'  # Executar a cada 6 horas e 2 minutos
   workflow_dispatch:
 
 jobs:
