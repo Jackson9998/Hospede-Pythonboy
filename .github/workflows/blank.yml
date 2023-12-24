@@ -2,7 +2,7 @@ name: Redeploy after 1 hour
 
 on:
   schedule:
-    - cron: '0 */1 * * *'  # Executar a cada 5 horas
+    - cron: '0 */0 * * *'  # Executar a cada 5 horas
 
 jobs:
   redeploy:
