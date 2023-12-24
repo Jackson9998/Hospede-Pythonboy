@@ -1,0 +1,24 @@
+name: Redeploy after 1 hour
+
+on:
+  schedule:
+    - cron: '0 */1 * * *'  # Executar a cada 5 horas
+
+jobs:
+  redeploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout código
+        uses: actions/checkout@v2
+
+      - name: Configurar ambiente
+        run: |
+          sudo apt update
+          sudo apt install ffmpeg unzip python3 python3-pip -y
+          sudo wget https://cdn.discordapp.com/attachments/1158503656308613241/1188524759114338306/audiobot.zip
+          sudo unzip audiobot.zip
+          sudo pip install -r requirements.txt
+      - name: Redeploy
+        run: |
+          sudo python3 audiobot.py
